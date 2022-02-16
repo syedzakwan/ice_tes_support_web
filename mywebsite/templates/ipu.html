@@ -1,0 +1,138 @@
+{% extends "base.html" %} {% block title %}IPU6 Camera{% endblock%}
+
+{% block content %}
+<form method="POST" >
+<h2 align="center">IPU6 Camera</h2>
+<div id="cont"></div>
+<style>
+
+.textbox {
+	width: 240px;
+	height: 240px;
+}
+
+.textarea {
+  width: 240px;
+  height: 240px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+table, td, th {
+  background: lightblue;
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+
+</style>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Add New Task</button><br><br>
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#document_modal">Add New Document</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModallabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	      <label for="title">Title</label><br>
+	      <input type="text" id="title1" placeholder="Title" name="task"  required><br><br>
+	      <label for="summary">Task summary:</label><br>
+		<form>
+			<textarea class=textarea id="summary" name="summary" placeholder="Summary..."></textarea>
+		</form>
+		<br>
+	      	<label for="start_date">Start Date:</label>
+		<input type="date" id="start_date" name="start_date" placeholder"Date" name="date" required><br>
+		<label for="status">Status:</label><br>
+		<select name="status" id="status">
+			<option value="work_in_progress">Work in Progress</option>
+			<option value="completed">Completed</option>
+			<option value="pending">Pending</option>
+			<option value="canceled">Canceled</option>
+		</select>
+		<br><br>
+		<label for="help">Help needed:</label><br>
+		<form>
+			<textarea class=textarea id="help" name="help" placeholder="List any help needed..."></textarea>
+		</form>
+		<label for="remark">Remark:</label><br>
+		<form>
+			<textarea class=textarea id="remark" name="remark" placeholder="Remark..."></textarea>
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="savebutton"  onclick="add_new_row()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="document_modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModallabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="documentModalLabel">Add New Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	      <label for="title">Title</label><br>
+	      <input type="text" placeholder="Title" name="task"  required><br><br>
+	      <label for="summary">Task summary:</label><br>
+		<form>
+			<textarea class=textarea id="summary" name="summary" placeholder="Summary..."></textarea>
+		</form>
+		<br><br>
+	      	<label for="start_date">Start Date:</label>
+		<input type="date" id="start_date" name="start_date" placeholder"Date" name="date" required><br><br>
+		<label for="help">Help needed:</label><br>
+		<form>
+			<textarea class=textarea id="help" name="help" placeholder="List help needed..."></textarea>
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+<table class="table table-bordered" id="table1">
+	<tr>
+		<th id="task_title">Title</th>
+		<th id="task_summary">Task Summary</th>
+		<th id="tabel_start_date">Start Date</th>
+		<th id="table_status">Status</th>
+		<th id="table_help">Help Needed</th>
+		<th id="table_remark">Remark</th>
+	</tr>
+</table>
+
+</form>
+
+{% endblock %}

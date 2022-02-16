@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.myDiv {
+  border: 5px outset lightblue;
+  background-color: lightskyblue;
+}
+
+.selectbutton{
+	background-color: lightblue;
+}
+
+.text_left {
+	float: left;
+	height: 200px
+	width: 200px
+}
+
+.intel_logo {
+	float: right;
+	height: 200px
+	width: 200px
+
+}
+</style>
+
+</head>
+<body>
+
+<!--
+<div class="myDiv">
+	<h1>ICE_TES Support </h1>
+</div>
+	<img src="intel.png" alt="Trulli" width="100" height="100">
+</div>
+-->
+<div class="myDiv">
+	<div class="text_left">
+		<h1> ICE_TES Support <h1>
+	</div>
+	<div class="intel_logo"> 
+		<img src="intel.png" alt="Trulli" width="80" height="80">
+	</div>
+	<div style="clear: both;"></div>
+</div>
+
+
+<h2> Project Support </h2>
+<button class="selectbutton" type="button" onclick="alert('GP Android')">GP Android</button><br><br>
+	<button class="selectbutton" type="button" onclick="gp_yocto()">GP Yocto</button><br><br>
+	<button class="selectbutton" type="button" onclick="alert('TIME TCC/TSN')">TIME TCC/TSN</button><br><br>
+	<button class="selectbutton" type="button" onclick="inb()">In-Band Manageability</button><br><br>
+	<button	class="selectbutton" type="button" onclick="alert('FuSa')">FuSa</button><br><br>
+	<button class="selectbutton" type="button" onclick="alert('SR-IOV')">SR-IOV</button><br><br>
+	<button class="selectbutton" type="button" onclick="alert('ICE Demo Portal')">ICE Demo Portal</button><br><br>
+	<button class="selectbutton" type="button" onclick="alert('IPS Issue')">IPS Issue</button><br><br>
+	<button class="selectbutton" type="button" onclick="alert('IPU6 Camera')">IPU6 Camera</button><br><br>
+	<button class="selectbutton" type="button" onclick="alert('PSE')">PSE</button><br><br>
+
+
+<script>
+function gp_yocto() {
+	location.href = "docker.html"
+}
+
+function inb() {
+	location.href = "inb/inb.html"
+}
+</script>
+
+</body>
+</html>

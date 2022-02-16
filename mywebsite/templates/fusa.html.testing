@@ -1,0 +1,89 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<style>
+	table, td, th {
+  background: lightblue;
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+</style>
+
+<button class="btn btn-primary" type="submit" onclick="add_row()">Add New Task</button>
+<form method="POST">
+ <!--  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Note</button>
+  </div> -->
+  
+  <button align-text="right" class="btn btn-primary" type="submit">Add</button>
+  <table class="table table-bordered" id="table1">
+	  <tr>
+		  <th id='title'>Title</th>
+		  <th id="summary">Summary</th>
+	  </tr>
+  </table>
+  <a href="http://10.221.122.25:8080/list">
+        <h2>Show list</h2>
+    </a>
+	<br><br>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Summary</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for row in project %}
+         <tr>
+            <td>{{ row.title }}</td>
+            <td>{{ row.summary }}</td>
+         </tr>
+         {% endfor %}
+		</tbody>
+	</table>
+	<br><br>
+<script>
+
+	var array_header = ['title','summary'];
+	n = array_header.length;
+	var x=0;
+	var list1 = [];
+	var list2 = [];
+
+	function add_row() {
+		var emp_table = document.getElementById('table1')
+		var row_count = emp_table.rows.length;
+		var tr;
+		tr = emp_table.insertRow(row_count);
+
+		for(var i=0; i< n; i++) {
+			var td = document.createElement("td");
+			td = tr.insertCell(i);
+			var ele = document.createElement('input');
+			ele.setAttribute('name', 'cell'+row_count+i);
+			td.appendChild(ele);				
+		}
+		
+	}
+</script>
+</form>
+{% endblock %}
