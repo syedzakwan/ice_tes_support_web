@@ -3,6 +3,7 @@ from flask_login import login_user,login_required, current_user
 from .models import Note,Project
 from . import db
 import json
+import pdb
 #import sqlite3 as sql
 
 views = Blueprint('views', __name__)
@@ -38,16 +39,14 @@ def fusa():
         if request.method == 'POST':
             data = request.form
             print(data)
-            title = request.form['task']
-            summary = request.form['summary']
-            #start_date = request.form['start_date']
-            #status = request.form['status']
-            help_needed = request.form['help']
-            remark = request.form['remark']
+            title = request.form.get('title1')
+            summary = request.form.get('summary')
+            start_date = request.form.get('start_date')
+            status = str(request.form.getlist("status")[0])
+            help_needed = request.form.get('help')
+            remark = request.form.get('remark')
 
-            #data = request.form
-            #print(data)
-            new_info = Project(title=title,summary=summary,help_needed=help_needed,remark=remark )
+            new_info = Project(title=title,summary=summary, start_date=start_date, status=status, help_needed=help_needed,remark=remark)
             db.session.add(new_info)
             db.session.commit()
             flash('New info added!', category='success')
