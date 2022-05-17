@@ -4,15 +4,14 @@ pipeline {
 
     stages {
 
-        boolean buildPassed=true
         stage("build") {
 
             steps{
                 echo "Build app"
-                def result = sh "python3 -m py_compile main.py"
-                if (result == 'Failed')
-                {
-                    error "build failed"
+                sh "python3 -m py_compile main.py"
+                script{
+                    FAILED_STAGE=env.STAGE_NAME
+                    echo FAILED_STAGE
                 }
             }
         }
