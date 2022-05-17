@@ -9,12 +9,10 @@ pipeline {
 
             steps{
                 echo "Build app"
-                try{
-                    sh "python3 -m py_compile main.py"
-                    
-                }
-                catch (Exception e){
-                    testPassed=false
+                def result = sh "python3 -m py_compile main.py"
+                if (result == 'Failed')
+                {
+                    error "build failed"
                 }
             }
         }
