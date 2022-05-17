@@ -4,11 +4,18 @@ pipeline {
 
     stages {
 
+        boolean buildPassed=true
         stage("build") {
 
             steps{
                 echo "Build app"
-                sh "python3 -m py_compile main.py"
+                try{
+                    sh "python3 -m py_compile main.py"
+                    
+                }
+                catch (Exception e){
+                    testPassed=false
+                }
             }
         }
 
