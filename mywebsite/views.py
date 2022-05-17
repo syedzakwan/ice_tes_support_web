@@ -4,7 +4,6 @@ from .models import Note,Project
 from . import db
 import json
 import pdb
-#import sqlite3 as sql
 
 views = Blueprint('views', __name__)
 
