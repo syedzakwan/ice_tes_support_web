@@ -8,6 +8,7 @@ pipeline {
 
             steps{
                 echo "Build app"
+                sh "python3 -m py_compile main.py"
             }
         }
 
