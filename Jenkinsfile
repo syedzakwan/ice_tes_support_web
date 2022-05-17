@@ -9,10 +9,6 @@ pipeline {
             steps{
                 echo "Build app"
                 sh "python3 -m py_compile main.py"
-                script{
-                    FAILED_STAGE=env.STAGE_NAME
-                    echo FAILED_STAGE
-                }
             }
         }
 
