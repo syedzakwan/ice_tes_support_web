@@ -22,7 +22,8 @@ pipeline {
         stage("deploy"){
 
             steps{
-                echo "Deploy app"
+                echo "Deploy app in docker container"
+                sh "docker run -dit -p 5000:5000 my_flask"
             }
         }
     }
