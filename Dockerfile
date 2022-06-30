@@ -1,11 +1,5 @@
 from python:3.9.2
 
-ENV http_proxy=http://proxy-png.intel.com:911
-ENV https_proxy=http://proxy-png.intel.com:912
-ENV ftp_proxy=http://proxy-png.intel.com:911
-ENV socks_proxy=http://proxy-png.intel.com:1080
-ENV no_proxy localhost,.intel.com,*.intel.com,10.0.0.0/8
-
 
 WORKDIR python-docker 
 
